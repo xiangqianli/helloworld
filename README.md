@@ -1,2 +1,0 @@
-# leecode
-leecode answer
