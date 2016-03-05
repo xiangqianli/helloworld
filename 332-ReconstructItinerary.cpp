@@ -49,7 +49,7 @@ public:
     }
     int stringSearch(string fromString,long long length){
         map<string,map<string, int>>::iterator stringLead=nodeList.find(fromString);
-        if (length==0) {//由错误用例推出，当fromString不存在，但长度为0时，依然成立
+        if (length==0) {//由错误用例推出，当fromString不存在，但[from,to]序列的长度为0时，依然成立
             return 1;
         }else if(stringLead==nodeList.end()){
             return 2;
