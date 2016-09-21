@@ -1,4 +1,10 @@
 # leecode
 leecode answers
 陆续对算法进行一些解释，方便回顾
-1、Code Jam.cpp是谷歌Code Jam资格赛里的一道题，原题链接https://code.google.com/codejam/contest/6254486/dashboard#s=p2，大数据集的解法基本复制了大神的思路 
+1、Code Jam.cpp是谷歌Code Jam资格赛里的一道题，原题链接https://code.google.com/codejam/contest/6254486/dashboard#s=p2
+大数据集的解法基本复制了大神的思路. 
+主要是大数据集中会出现32位数，而long long数据类型直接赋值10进制的数只能达到19位，这时需要用到位运算存为2进制的数，后期通过模2转为base前的形式。
+核心算法里用到了数论中模m的基础性质，即对于+和*，可以随意取模。
+另外由于首位和最后一位都是1，所以一遍遍历下来得到的数是对称的，算法中利用了这一点将倒数第i位移至顺数第i位方便计算。
+总结：给大神跪了
+
