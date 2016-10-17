@@ -1,0 +1,70 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <set>
+#include <math.h>
+#include <stdlib.h>
+
+using namespace std;
+
+struct ListNode {
+   int val;
+   ListNode *next;
+   ListNode(int x) : val(x), next(NULL) {}
+};
+
+ListNode * addTwoNumbers(ListNode *l1, ListNode *l2){
+    ListNode *p =l1, *q=l2;
+    ListNode * r;
+    ListNode * t = r;
+    int add =0;
+    while(p !=NULL && q!=NULL){
+        int temp = p->val + q->val;
+        t->val = temp%10+add;
+        add = temp/10;
+        t = t->next;
+        p = p->next;
+        q = q->next;
+    }
+    if(p!=NULL){
+        t->val=p->val+add;
+        t->next = p->next;
+    }else if(q!=NULL){
+        t->val=q->val+add;
+        t->next = q->next;
+    }else{
+        if(add==1){
+            t->val=add;
+            t->next = NULL;
+        }
+    }
+    return r;
+}
+int main()
+{
+    ListNode* l1;
+    ListNode l10(2), l11(4), l12(3);
+    ListNode* l2;
+    ListNode l20(5), l21(6), l22(4);
+
+    l12.next = NULL;
+    l11.next = &l12;
+    *l1 =l10;
+
+    l22.next = NULL;
+    l21.next = &l22;
+    *l2 =l20;
+
+    ListNode * l3 = addTwoNumbers(l1,l2);
+    ListNode * r = l3;
+    while(r!=NULL){
+        cout<< " "<< r->val;
+        r= r->next;
+    }
+    cout<<endl;
+    cout << "Hello world!" << endl;
+    return 0;
+}
