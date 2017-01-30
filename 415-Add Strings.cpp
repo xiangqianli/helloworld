@@ -1,7 +1,19 @@
 //
 //  415-Add Strings.cpp
 //  leecode
-//
+//  用string转char[]的写法：
+/*
+char  ll[2];
+    ll[1]= '\0';
+    char  nn[2];
+    nn[1]= '\0';
+    for (long i = 0; i < max(len1, len2); i++) {
+        ll[0]= i<len1?num1[len1 - i - 1]:'0';
+        
+        nn[0]= i<len2?num2[len2 - i - 1]:'0';
+        int l = atoi(ll);
+        int n = atoi(nn);
+*/
 //  Created by lixiangqian on 17/1/29.
 //  Copyright © 2017年 lixiangqian. All rights reserved.
 //
