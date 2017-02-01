@@ -23,7 +23,7 @@ vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
     if (nums1.size() == 0 || nums1.size() == 0) {
         return result;
     }
-    set<int> e(nums1.begin(), nums2.end());
+    set<int> e(nums1.begin(), nums1.end());
     for (int j = 0; j < nums2.size(); j++) {
         if (e.erase(nums2[j])) {
             result.push_back(nums2[j]);
