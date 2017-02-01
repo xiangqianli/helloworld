@@ -1,7 +1,8 @@
 //
 //  349-IntersectionofTwoArrays.cpp
 //  leetcode
-//  erase会从set/map/vector里把那个迭代器指向的空间销掉，后面的元素都要往前移一位；返回下一个元素的迭代地址
+//  erase会从set/map/vector里把那个迭代器指向的空间销掉，后面的元素都要往前移一位；返回下一个元素的迭代地址(c++11 时set才返回后一位，c++ 98无返回值
+//  find相比erase是主要耗时间的操作 
 //  Created by lixiangqian on 17/2/1.
 //  Copyright © 2017年 lixiangqian. All rights reserved.
 //
@@ -24,9 +25,9 @@ vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
     }
     set<int> e(nums1.begin(), nums2.end());
     for (int j = 0; j < nums2.size(); j++) {
-        if (find(e.begin(), e.end(), nums2[j])!=e.end()) {
+        if (e.erase(nums2[j])) {
             result.push_back(nums2[j]);
-            e.erase(nums2[j]);
+            
         }
     }
     return result;
