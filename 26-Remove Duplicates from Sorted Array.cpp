@@ -22,7 +22,17 @@ int removeDuplicates(vector<int>& nums) {
     for (int i =1 ; i<nums.size(); i++) {
         if (nums[i] == nums[i-1]) {
             s--;
+            //之前忘了下面这两行
+            i--;
+            nums.erase(nums.begin()+i);
         }
+        /*  不用erase，来降低时间复杂度
+             if (nums[i] == nums[i-1]) {
+                count++;
+            }else{
+                nums[i-count] = nums[i];
+            }
+        */
     }
     return s;
 }
