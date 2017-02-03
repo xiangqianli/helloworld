@@ -30,10 +30,13 @@ int guess(int num){
 int guessNumber(int n) {
     int low = 1, high= n, mid ;
     while (low < high) {
+        //不要用mid = (low + high)/2 会溢出
         mid = low + (high-low)/2;
-        if (guess(mid)==0) {
+        //把需要两次用到的接口请求提出来，大大节省时间
+        int t = guess(mid);
+        if (t==0) {
             return mid;
-        }else if(guess(mid) > 0){
+        }else if(t > 0){
             low = mid +1;
         }else{
             high = mid -1;
