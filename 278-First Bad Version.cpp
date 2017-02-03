@@ -30,9 +30,7 @@ int firstBadVersion(int n) {
     int mid;
     while(low < high){
         mid = low + (high-low)/2;
-        if(low == mid && isBadVersion(mid)){
-            break;
-        }else if(isBadVersion(mid)){
+        if(isBadVersion(mid)){
             high = mid;
         }else{
             low = mid+1;
